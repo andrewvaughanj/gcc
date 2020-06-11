@@ -2298,6 +2298,20 @@ classify_argument (machine_mode mode, const_tree type,
     case E_CSImode:
     case E_CHImode:
     case E_CQImode:
+    case E_QQmode:
+    case E_UQQmode:
+    case E_HQmode:
+    case E_UHQmode:
+    case E_SQmode:
+    case E_USQmode:
+    case E_DQmode:
+    case E_UDQmode:
+    case E_HAmode:
+    case E_UHAmode:
+    case E_SAmode:
+    case E_USAmode:
+    case E_DAmode:
+    case E_UDAmode:
       {
 	int size = bit_offset + (int) GET_MODE_BITSIZE (mode);
 
@@ -2330,6 +2344,10 @@ classify_argument (machine_mode mode, const_tree type,
       }
     case E_CDImode:
     case E_TImode:
+    case E_TQmode:
+    case E_UTQmode:
+    case E_TAmode:
+    case E_UTAmode:
       classes[0] = classes[1] = X86_64_INTEGER_CLASS;
       return 2;
     case E_COImode:
@@ -20993,6 +21011,8 @@ ix86_scalar_mode_supported_p (scalar_mode mode)
 {
   if (DECIMAL_FLOAT_MODE_P (mode))
     return default_decimal_float_supported_p ();
+  else if (ALL_SCALAR_FIXED_POINT_MODE_P (mode))
+    return default_fixed_point_supported_p ();
   else if (mode == TFmode)
     return true;
   else

@@ -7664,6 +7664,10 @@ else
     mips*-*-*)
       enable_fixed_point=yes
       ;;
+
+    i?86*-*-* | x86_64*-*-*)
+      enable_fixed_point=yes
+      ;;
     *)
       { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: fixed-point is not supported for this target, ignored" >&5
 $as_echo "$as_me: WARNING: fixed-point is not supported for this target, ignored" >&2;}

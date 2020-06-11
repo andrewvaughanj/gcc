@@ -869,6 +869,10 @@ AC_ARG_ENABLE(fixed-point,
     mips*-*-*)
       enable_fixed_point=yes
       ;;
+
+    i?86*-*-* | x86_64*-*-*)
+      enable_fixed_point=yes
+      ;;
     *)
       AC_MSG_WARN([fixed-point is not supported for this target, ignored])
       enable_fixed_point=no
